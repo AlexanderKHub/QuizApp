@@ -57,10 +57,11 @@ function showQuestion() {
 
 //Geht im JSON questions eins höher und ruft dann die showQuestion Funktion auf um alle Sachen auszugeben.
 function nextQuestion() {
-    if (currentQuestion+1 >= questions.length) {
+    removeColors();
+    if (currentQuestion + 1 >= questions.length) {
         alert('Du bist mit den Fragen durch')
     }
-    else{
+    else {
         currentQuestion++;
         showQuestion();
     }
@@ -70,4 +71,33 @@ function nextQuestion() {
 function questionNumbers() {
     document.getElementById('currentQuestion').innerHTML = currentQuestion + 1;
     document.getElementById('questionsLength').innerHTML = questions.length;
+}
+
+
+//Kontrolliert ob die angeklickte Antwort mit der richtigen Antwort übereinstimmt, wenn ja dann wird die nächste Frage aufgerufen
+function answer(selectedAnswer) {
+    let question = questions[currentQuestion];
+    let chosenAnswer = document.getElementById(`answer_${selectedAnswer}`);
+    let correctAnswerNumber = question['right_answer'];
+    let correctAnswer = document.getElementById(`answer_${correctAnswerNumber}`);
+
+    if (selectedAnswer == question['right_answer']) {
+        chosenAnswer.classList.add("right-answer");
+    }
+    else {
+        chosenAnswer.classList.add("wrong-answer");
+        correctAnswer.classList.add("right-answer");
+    }
+}
+
+//Entfernt jegliche Farben von den Antwortcontainern
+function removeColors() {
+    document.getElementById('answer_1').classList.remove("right-answer");
+    document.getElementById('answer_1').classList.remove("wrong-answer");
+    document.getElementById('answer_2').classList.remove("right-answer");
+    document.getElementById('answer_2').classList.remove("wrong-answer");
+    document.getElementById('answer_3').classList.remove("right-answer");
+    document.getElementById('answer_3').classList.remove("wrong-answer");
+    document.getElementById('answer_4').classList.remove("right-answer");
+    document.getElementById('answer_4').classList.remove("wrong-answer");
 }

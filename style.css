@@ -1,12 +1,12 @@
 body{
     background-color: #880000;
-    
 }
 
 .btn-danger{
     background-color:#880000 !important;
     border-color:white !important;
 }
+
 #test{
     display:flex;
     gap:4px;
@@ -23,4 +23,12 @@ body{
     display:flex;
     justify-content:space-between;
 
+}
+
+.wrong-answer{
+    background-color:red;
+}
+
+.right-answer{
+    background-color:green;
 }
