@@ -58,6 +58,7 @@ function showQuestion() {
 //Geht im JSON questions eins höher und ruft dann die showQuestion Funktion auf um alle Sachen auszugeben.
 function nextQuestion() {
     removeColors();
+    document.getElementById('next-button').classList.add("hide");
     if (currentQuestion + 1 >= questions.length) {
         alert('Du bist mit den Fragen durch')
     }
@@ -88,6 +89,7 @@ function answer(selectedAnswer) {
         chosenAnswer.classList.add("wrong-answer");
         correctAnswer.classList.add("right-answer");
     }
+    document.getElementById('next-button').classList.remove("hide")
 }
 
 //Entfernt jegliche Farben von den Antwortcontainern
