@@ -1,0 +1,26 @@
+body{
+    background-color: #880000;
+    
+}
+
+.btn-danger{
+    background-color:#880000 !important;
+    border-color:white !important;
+}
+#test{
+    display:flex;
+    gap:4px;
+}
+
+#content-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#card-footer{
+    display:flex;
+    justify-content:space-between;
+
+}
