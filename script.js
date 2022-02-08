@@ -97,8 +97,14 @@ function answer(selectedAnswer) {
     document.getElementById('next-button').classList.remove("hide")
 }
 
+//Startet die Webseite neu
 function restart(){
     location.reload();
+}
+
+function startDevAka(){
+    document.getElementById('menu-card').classList.add("hide");
+    document.getElementById('quiz-card').classList.remove("hide");
 }
 
 //Entfernt jegliche Farben von den Antwortcontainern

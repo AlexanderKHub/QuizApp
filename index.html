@@ -13,9 +13,45 @@
 
 <body onload="init()">
 
-   
-
     <div id="content-container">
+
+        <div id="menu-card" class="card">
+            <div class="card-body">
+                <h5 class="card-title">Wähle eine Kategorie aus!</h5>
+                <div class="card mb-2">
+                    <div class="card-body" id="dev-aka-card" onclick="startDevAka()">
+                        <b>Developer Akademie</b>
+                    </div>
+                </div>   
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <b>Informatik</b> (Soon to come)
+                    </div>
+                </div> 
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <b>Allgemeinbildung</b> (Soon to come)
+                    </div>
+                </div> 
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <b>Mathematik</b> (Soon to come)
+                    </div>
+                </div>    
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <b>Sport</b> (Soon to come)
+                    </div>
+                </div> 
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <b>Autos</b> (Soon to come)
+                    </div>
+                </div>         
+            </div>
+        </div>
+
+
 
         <div id="end-card" class="card hide">
             <img src="img/gameover.jpg" class="card-img-top">
@@ -30,7 +66,7 @@
             </div>
         </div>
 
-        <div id="quiz-card" class="card">
+        <div id="quiz-card" class="card hide">
             <img src="img/brainstorming.jpg" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title" id="question-text">Question</h5>
