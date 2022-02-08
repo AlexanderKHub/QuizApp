@@ -32,14 +32,15 @@ let questions = [
         "answer_1": "Um die 6 Monate",
         "answer_2": "3 Jahre, wie eine Ausbildung",
         "answer_3": "1 Monat",
-        "answer_4": "Das Lernen hat nie ein Ende!",
+        "answer_4": "Mit viel Kaffe geht das an einem Tag!",
         "right_answer": 1
     },
 ];
 
 //Hilfsvariable für den aktuellen Index im questions JSON
-currentQuestion = 0;
-
+let currentQuestion = 0;
+//Startwert des Endscores
+let endscore = 0;
 function init() {
     showQuestion();
 }
@@ -55,12 +56,14 @@ function showQuestion() {
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
-//Geht im JSON questions eins höher und ruft dann die showQuestion Funktion auf um alle Sachen auszugeben.
+//Geht im JSON questions eins höher und ruft dann die showQuestion Funktion auf um alle Sachen auszugeben. Falls alle Fragen durch sind, zeig den Endscreen an
 function nextQuestion() {
     removeColors();
     document.getElementById('next-button').classList.add("hide");
     if (currentQuestion + 1 >= questions.length) {
-        alert('Du bist mit den Fragen durch')
+        document.getElementById('end-card').classList.remove("hide");
+        document.getElementById('quiz-card').classList.add("hide");
+        document.getElementById('end-screen-score').innerHTML = `Du hast ${endscore} von ${questions.length} Fragen richtig beantwortet!`;
     }
     else {
         currentQuestion++;
@@ -68,7 +71,7 @@ function nextQuestion() {
     }
 }
 
-//Zeigt den dynamischen Bereich im Cardfooter an -> Frage 1/5 etc.
+//Zeigt den dynamischen Bereich im Cardfooter an -> Frage 1/5, 2/5, 3/5 etc.
 function questionNumbers() {
     document.getElementById('currentQuestion').innerHTML = currentQuestion + 1;
     document.getElementById('questionsLength').innerHTML = questions.length;
@@ -84,12 +87,18 @@ function answer(selectedAnswer) {
 
     if (selectedAnswer == question['right_answer']) {
         chosenAnswer.classList.add("right-answer");
+        endscore++;
+        
     }
     else {
         chosenAnswer.classList.add("wrong-answer");
         correctAnswer.classList.add("right-answer");
     }
     document.getElementById('next-button').classList.remove("hide")
+}
+
+function restart(){
+    location.reload();
 }
 
 //Entfernt jegliche Farben von den Antwortcontainern

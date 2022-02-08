@@ -13,14 +13,24 @@
 
 <body onload="init()">
 
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">QuizApp</a>
-        </div>
-    </nav>
+   
 
     <div id="content-container">
-        <div class="card">
+
+        <div id="end-card" class="card hide">
+            <img src="img/gameover.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">Quiz beendet!</h5>
+                <div class="card mb-2">
+                    <div class="card-body" id="end-screen-score">
+                        
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="restart()">Zurück zum Menü</button>
+            </div>
+        </div>
+
+        <div id="quiz-card" class="card">
             <img src="img/brainstorming.jpg" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title" id="question-text">Question</h5>
@@ -48,7 +58,8 @@
                     <div id="test">
                         Frage <div id="currentQuestion"> </div> / <div id="questionsLength"> </div>
                     </div>
-                    <button type="button" id="next-button" class="btn btn-danger hide" onclick="nextQuestion()">Nächste Frage</button>
+                    <button type="button" id="next-button" class="btn btn-danger hide" onclick="nextQuestion()">Nächste
+                        Frage</button>
                 </div>
 
             </div>
